@@ -2,10 +2,11 @@
 // Loading Screen
 window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loading-screen');
-    // Hide loading screen after page fully loads
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-    }, 2000); // 2 second delay for smooth transition
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 2000);
+    }
 });
 
 // Scroll Animations using Intersection Observer
@@ -14,7 +15,6 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show-on-scroll');
         } else {
-            // Optional: remove to animate out
             entry.target.classList.remove('show-on-scroll');
         }
     });
