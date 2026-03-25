@@ -1,4 +1,13 @@
 
+// Loading Screen
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    // Hide loading screen after page fully loads
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+    }, 2000); // 2 second delay for smooth transition
+});
+
 // Scroll Animations using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
