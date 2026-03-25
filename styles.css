@@ -167,37 +167,7 @@ nav {
   font-size: 20px;
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-.nav-logo span {
-  display: inline-block;
-  opacity: 0;
-  animation: modernFade 4s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
-}
-
-@keyframes modernFade {
-  0% {
-    opacity: 0;
-    transform: translateY(8px);
-    filter: blur(4px);
-    color: #1a1a1a;
-  }
-
-  20%,
-  75% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0px);
-    color: #1a1a1a;
-  }
-
-  90%,
-  100% {
-    opacity: 0;
-    transform: translateY(-8px);
-    filter: blur(4px);
-    color: #e56b3e;
-  }
+  color: #1a1a1a;
 }
 
 nav ul {

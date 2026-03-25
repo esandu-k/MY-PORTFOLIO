@@ -1,4 +1,3 @@
-
 // Loading Screen
 window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loading-screen');
@@ -27,19 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
         el.classList.add('hidden-scroll');
         observer.observe(el);
     });
-
-    // Letter-by-letter fade in animation for the logo
-    const logo = document.querySelector('.nav-logo');
-    if (logo) {
-        const text = logo.textContent;
-        logo.textContent = '';
-        [...text].forEach((char, i) => {
-            let span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char;
-            span.style.animationDelay = `${i * 0.1}s`;
-            logo.appendChild(span);
-        });
-    }
 
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
