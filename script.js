@@ -1,10 +1,10 @@
 // Loading Screen
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
-        setTimeout(() => {
+        setTimeout(function() {
             loadingScreen.classList.add('hidden');
-        }, 2000);
+        }, 1500);
     }
 });
 
@@ -19,25 +19,24 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.15, rootMargin: '0px' });
 
-// Select all sections and elements to animate
-window.addEventListener('DOMContentLoaded', () => {
-    // Scroll animations
+// Initialize animations on page load
+window.addEventListener('DOMContentLoaded', function() {
+    // Scroll animations for sections
     document.querySelectorAll('section, footer').forEach((el) => {
         el.classList.add('hidden-scroll');
         observer.observe(el);
     });
 
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    });
-
-    // Close menu when a nav link is clicked
-    navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-    });
+    // Letter-by-letter fade in animation for the logo
+    const logo = document.querySelector('.nav-logo');
+    if (logo) {
+        const text = logo.textContent;
+        logo.textContent = '';
+        [...text].forEach((char, i) => {
+            let span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.animationDelay = `${i * 0.1}s`;
+            logo.appendChild(span);
+        });
+    }
 });
